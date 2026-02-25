@@ -34,6 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // intercepter les clics sur les cartes d'actualité pour afficher le loader avant navigation
+    document.querySelectorAll('.news-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href || href.startsWith('#')) return;
+            if (href.endsWith('.html')) {
+                e.preventDefault();
+                showLoader();
+                setTimeout(() => { window.location.href = href; }, 1500);
+            }
+        });
+    });
+
     // --- 1. Gestion Professionnelle du Menu Mobile ---
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -50,20 +63,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Ouverture/fermeture du menu au clic sur le hamburger
-    if (hamburger && navLinks) {
+    // Ouverture/fermeture du menu au clic sur le hamburger -> utilise le Side Drawer
+    const sideDrawer = document.getElementById('sideDrawer');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const drawerClose = document.getElementById('drawerClose');
+
+    function openDrawer() {
+        if (sideDrawer) sideDrawer.classList.add('open');
+        if (drawerBackdrop) drawerBackdrop.classList.add('visible');
+        if (hamburger) hamburger.classList.add('toggle');
+        body.classList.add('menu-open');
+    }
+
+    function closeDrawer() {
+        if (sideDrawer) sideDrawer.classList.remove('open');
+        if (drawerBackdrop) drawerBackdrop.classList.remove('visible');
+        if (hamburger) hamburger.classList.remove('toggle');
+        body.classList.remove('menu-open');
+    }
+
+    if (hamburger) {
         hamburger.addEventListener('click', (e) => {
-            e.stopPropagation(); // Empêcher la fermeture immédiate
-            const isActive = navLinks.classList.contains('active');
-            if (isActive) {
-                closeMenu();
-            } else {
-                navLinks.classList.add('active');
-                hamburger.classList.add('toggle');
-                body.classList.add('menu-open');
-            }
+            e.stopPropagation();
+            openDrawer();
         });
     }
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    // ensure staggered animation restarts when opening
+    const drawerListItems = document.querySelectorAll('.drawer-nav ul li');
+    function resetStagger() {
+        drawerListItems.forEach(li => {
+            li.style.transitionDelay = '';
+        });
+    }
+    function applyStagger() {
+        drawerListItems.forEach((li, i) => {
+            li.style.transitionDelay = `${0.04 + i * 0.08}s`;
+        });
+    }
+    // apply stagger when drawer opens
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(m => {
+            if (m.attributeName === 'class') {
+                if (sideDrawer.classList.contains('open')) {
+                    resetStagger();
+                    // small timeout to allow class to settle
+                    setTimeout(applyStagger, 25);
+                } else {
+                    resetStagger();
+                }
+            }
+        });
+    });
+    if (sideDrawer) observer.observe(sideDrawer, { attributes: true });
 
     // Fermer le menu quand on clique sur un lien de navigation
     const navAnchors = document.querySelectorAll('.nav-links a');

@@ -21,6 +21,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Roboto:wght@300;400;500;700&family=Special+Elite&display=swap"
         rel="stylesheet">
+        <!-- Import police Inter pour toute la page (mobile nav exige une police moderne) -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- mêmes fontes que la page principale (dégradé de secours) -->
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Roboto:wght@300;400;500;700&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -55,6 +59,27 @@
                     <li><a href="#contact" class="btn-nav">Rejoindre le PRI</a></li>
                 </ul>
             </nav>
+            <!-- Drawer backdrop + side drawer (mobile) -->
+            <div id="drawerBackdrop" class="drawer-backdrop" aria-hidden="true"></div>
+            <aside id="sideDrawer" class="side-drawer" aria-hidden="true">
+                <button id="drawerClose" class="drawer-close" aria-label="Fermer le menu">×</button>
+                <div class="drawer-tricolor">
+                    <span class="bg-orange"></span>
+                    <span class="bg-white"></span>
+                    <span class="bg-green"></span>
+                </div>
+                <nav class="drawer-nav">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#president">Le Président</a></li>
+                        <li><a href="index.html#notre-vision">Notre Vision</a></li>
+                        <li><a href="index.html#direction-parti">Bureau</a></li>
+                        <li><a href="actualites.html">Actualités</a></li>
+                        <li><a href="index.html#oeuvres">Publications</a></li>
+                        <li><a href="index.html#contact" class="drawer-cta">Rejoindre le PRI</a></li>
+                    </ul>
+                </nav>
+            </aside>
         </div>
         <div class="tricolor-line">
             <span class="bg-orange"></span>

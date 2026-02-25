@@ -6,10 +6,10 @@
     <title>Actualités - PRI</title>
     <link rel="shortcut icon" href="IMAGE/LOGO.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <!-- mêmes fontes que la page principale -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Roboto:wght@300;400;500;700&family=Special+Elite&display=swap"
-        rel="stylesheet">
+    <!-- Import police Inter pour toute la page (mobile nav exige une police moderne) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- mêmes fontes que la page principale (dégradé de secours) -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Roboto:wght@300;400;500;700&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- styles spécifiques transférés dans style.css -->
 </head>
@@ -45,6 +45,27 @@
                     <li><a href="index.html#contact" class="btn-nav">Rejoindre le PRI</a></li>
                 </ul>
             </nav>
+            <!-- Drawer backdrop + side drawer (mobile) -->
+            <div id="drawerBackdrop" class="drawer-backdrop" aria-hidden="true"></div>
+            <aside id="sideDrawer" class="side-drawer" aria-hidden="true">
+                <button id="drawerClose" class="drawer-close" aria-label="Fermer le menu">×</button>
+                <div class="drawer-tricolor">
+                    <span class="bg-orange"></span>
+                    <span class="bg-white"></span>
+                    <span class="bg-green"></span>
+                </div>
+                <nav class="drawer-nav">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#president">Le Président</a></li>
+                        <li><a href="index.html#notre-vision">Notre Vision</a></li>
+                        <li><a href="index.html#direction-parti">Bureau</a></li>
+                        <li><a href="actualites.html">Actualités</a></li>
+                        <li><a href="index.html#oeuvres">Publications</a></li>
+                        <li><a href="index.html#contact" class="drawer-cta">Rejoindre le PRI</a></li>
+                    </ul>
+                </nav>
+            </aside>
         </div>
         <div class="tricolor-line">
             <span class="bg-orange"></span>
@@ -61,7 +82,7 @@
                 <!-- (Les 3 premières cartes ont été supprimées à la demande) -->
                 <!-- CARTE AJOUTÉE : Rencontre Littérature (IM1) -->
                 <!-- Remplace IMAGE/IM1.jpg par le fichier réel dans votre dossier IMAGE -->
-                <a href="actualite-4.html" class="news-card">
+                <a href="actualite-4.html" class="news-card small">
                     <!-- Image réelle placée dans le dossier 'IMAGE ACT' -->
                     <img src="IMAGE%20ACT/IM1.jpeg" alt="V. Konan, Abou Houdou Diarra et invité en costume">
                     <div class="news-content">
@@ -78,7 +99,7 @@
 
                 <!-- CARTE AJOUTÉE : Visite protocolaire (IM2) -->
                 <!-- Remplace IMAGE/IM2.jpg par le fichier réel dans votre dossier IMAGE -->
-                <a href="actualite-3.html" class="news-card">
+                <a href="actualite-3.html" class="news-card small">
                     <!-- Image réelle placée dans le dossier 'IMAGE ACT' -->
                     <img src="IMAGE%20ACT/IM2.jpeg" alt="Madame la Ministre Henriette Adjoua Lagou en robe bleue">
                     <div class="news-content">
@@ -89,6 +110,32 @@
                         <!-- Texte de l'actualité : modifiable directement ici -->
                         <h3 class="news-title">Visite de courtoisie chez Madame la Ministre Henriette Adjoua LAGOU</h3>
                         <p style="margin:8px 0 0;color:#333;font-size:0.95rem;line-height:1.35">Une visite de courtoisie chez Madame la Ministre Henriette Adjoua LAGOU, candidate à l'élection présidentielle du 25 octobre 2025.</p>
+                    </div>
+                </a>
+
+                <!-- CARTE AJOUTÉE : Concertation coordinateurs (IM3) -->
+                <a href="actualite-4.html" class="news-card">
+                    <img src="IMAGE%20ACT/IM3.jpeg" alt="Coordinateurs du PRI devant affiche PRI">
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">Janvier 2024</span>
+                            <span class="news-badge">Organisation</span>
+                        </div>
+                        <h3 class="news-title">Concertation avec les coordinateurs du PRI</h3>
+                        <p style="margin:8px 0 0;color:#333;font-size:0.95rem;line-height:1.35">Rencontre et échanges stratégiques avec les coordinateurs du parti : le Camarade Bamba Karim (Abidjan), le Camarade Seh's Boua Pierre Rahoul (Dabou) et le Camarade Kouassi Hubert (Hermankono-Garo / Divo).</p>
+                    </div>
+                </a>
+
+                <!-- CARTE AJOUTÉE : Dédicace (IM4) -->
+                <a href="actualite-5.html" class="news-card">
+                    <img src="IMAGE%20ACT/IM4.jpeg" alt="Président signant des ouvrages - dédicace">
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">28 fév. 2025</span>
+                            <span class="news-badge">Événement</span>
+                        </div>
+                        <h3 class="news-title">Dédicace du livre ALASSANE OUATTARA, L'ARTISAN DU RENOUVEAU IVOIRIEN</h3>
+                        <p style="margin:8px 0 0;color:#333;font-size:0.95rem;line-height:1.35">Dédicace du livre le 28 Février 2025 à Abidjan-Cocody.</p>
                     </div>
                 </a>
 
