@@ -34,18 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // intercepter les clics sur les cartes d'actualité pour afficher le loader avant navigation
-    document.querySelectorAll('.news-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (!href || href.startsWith('#')) return;
-            if (href.endsWith('.html')) {
-                e.preventDefault();
-                showLoader();
-                setTimeout(() => { window.location.href = href; }, 1500);
-            }
-        });
-    });
+    // NOTE: les cartes d'actualité ne sont plus cliquables (images supprimées de balises <a>)
 
     // --- 1. Gestion Professionnelle du Menu Mobile ---
     const hamburger = document.querySelector('.hamburger');

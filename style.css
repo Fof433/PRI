@@ -411,6 +411,7 @@ html {
     display: block;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    pointer-events: none; /* images non-cliquables */
 }
 
 /* cartes réduites (IM1 & IM2) */
