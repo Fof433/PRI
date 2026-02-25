@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - PRI</title>
+    <link rel="shortcut icon" href="IMAGE/LOGO.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <!-- mêmes fontes que la page principale -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Roboto:wght@300;400;500;700&family=Special+Elite&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- styles spécifiques transférés dans style.css -->
+</head>
+<body>
+
+    <!-- écran de chargement : il est retiré par le script après 1,5s -->
+    <div id="loader-overlay">
+        <div class="spinner" aria-label="Chargement en cours"></div>
+    </div>
+
+    <!-- même header/nav que sur la page d'accueil -->
+    <button id="backToTop" type="button" class="scroll-top" aria-label="Retour en haut"><i
+            class="fas fa-arrow-up"></i></button>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="IMAGE/LOGO.jpeg" alt="PRI - logo" class="header-logo-image">
+            </a>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#president">Le Président</a></li>
+                    <li><a href="index.html#notre-vision">Notre Vision</a></li>
+                    <li><a href="index.html#direction-parti">Bureau</a></li>
+                    <li><a href="actualites.html" class="active">Actualités</a></li>
+                    <li><a href="index.html#oeuvres">Publications</a></li>
+                    <li><a href="index.html#contact" class="btn-nav">Rejoindre le PRI</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="tricolor-line">
+            <span class="bg-orange"></span>
+            <span class="bg-white"></span>
+            <span class="bg-green"></span>
+        </div>
+    </header>
+
+    <!-- contenu spécifique Actualités -->
+    <section class="news-section">
+        <div class="container">
+            <h1 class="section-title" style="text-align:center; color:#0A7A4A;">Actualités</h1>
+            <div class="news-grid">
+                <!-- carte modifiable : dupliquez et changez image / date / titre / catégorie / lien -->
+                <a href="article-1.html" class="news-card">
+                    <img src="IMAGE/news1.jpg" alt="Photo d'illustration de politique">
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">12 février 2026</span>
+                            <span class="news-badge">Politique</span>
+                        </div>
+                        <h3 class="news-title">Le PRI organise une réunion nationale</h3>
+                    </div>
+                </a>
+
+                <a href="article-2.html" class="news-card">
+                    <img src="IMAGE/news2.jpg" alt="Photo d'illustration de réunion">
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">5 février 2026</span>
+                            <span class="news-badge">Réunion</span>
+                        </div>
+                        <h3 class="news-title">Nouveau bureau : bilan des premiers mois</h3>
+                    </div>
+                </a>
+
+                <a href="article-3.html" class="news-card">
+                    <img src="IMAGE/news3.jpg" alt="Photo d'illustration d'économie">
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">28 janvier 2026</span>
+                            <span class="news-badge">Économie</span>
+                        </div>
+                        <h3 class="news-title">Stratégies pour lutter contre la dette publique</h3>
+                    </div>
+                </a>
+
+                <!-- autres cartes possibles... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- scripts communs + code spécifique -->
+    <script src="script.js"></script>
+</body>
+</html>

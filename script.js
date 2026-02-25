@@ -12,7 +12,28 @@ function debounce(func, wait = 15) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+    // --- Loader overlay helpers (utilisé lors de la navigation Actualités) ---
+    const loaderOverlay = document.getElementById('loader-overlay');
+    function showLoader() {
+        if (loaderOverlay) loaderOverlay.style.display = 'flex';
+    }
+    function hideLoader() {
+        if (loaderOverlay) loaderOverlay.style.display = 'none';
+    }
+    // si l'overlay est présent au chargement de la page, on le cache après 1,5s
+    if (loaderOverlay) {
+        setTimeout(hideLoader, 1500);
+    }
+    // intercepter les clics sur le(s) lien(s) Actualités pour montrer l'overlay
+    document.querySelectorAll('a[href="actualites.html"]').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const href = link.getAttribute('href');
+            showLoader();
+            setTimeout(() => { window.location.href = href; }, 1500);
+        });
+    });
+
     // --- 1. Gestion Professionnelle du Menu Mobile ---
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
