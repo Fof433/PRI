@@ -109,11 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     if (sideDrawer) observer.observe(sideDrawer, { attributes: true });
 
-    // Fermer le menu quand on clique sur un lien de navigation
+    // Fermer le menu quand on clique sur un lien de navigation (desktop)
     const navAnchors = document.querySelectorAll('.nav-links a');
     navAnchors.forEach(link => {
         link.addEventListener('click', () => {
             closeMenu();
+        });
+    });
+
+    // Fermer le drawer/overlay mobile dès qu'un lien est activé
+    const drawerAnchors = document.querySelectorAll('.drawer-nav a');
+    drawerAnchors.forEach(link => {
+        link.addEventListener('click', () => {
+            closeDrawer();
         });
     });
 
@@ -225,6 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             
+            // Fermeture du drawer au cas où il serait ouvert (prioritaire)
+            closeDrawer();
+
             // Ignorer les liens vides ou invalides
             if (!href || href === '#') {
                 return;
