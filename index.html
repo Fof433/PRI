@@ -218,42 +218,36 @@
                     <div class="direction-parti-president-card">
                         <span class="direction-parti-icon"><i class="fas fa-user-tie"></i></span>
                         <div class="direction-parti-president-info">
-                            <span class="direction-parti-name">Diomandé ZOUMANA</span>
+                            <span class="direction-parti-name">DiOMANDE ZOUMANA</span>
                             <span class="direction-parti-role">Président</span>
-                            <span class="direction-parti-desc">Enseignant-Écrivain, originaire de Téguéla</span>
+                            <span class="direction-parti-desc">Enseignant-Écrivain</span>
                         </div>
                     </div>
                     <div class="direction-parti-members-grid">
                         <div class="direction-parti-card">
                             <span class="direction-parti-icon"><i class="fas fa-user-tie"></i></span>
-                            <span class="direction-parti-name">Miss ABBAH</span>
+                            <span class="direction-parti-name">Mme MELEDJE YANN YOLANDE</span>
                             <span class="direction-parti-role">1ère Vice-présidente</span>
-                            <span class="direction-parti-desc">Opérateur économique, originaire de Dabou</span>
                         </div>
                         <div class="direction-parti-card">
                             <span class="direction-parti-icon"><i class="fas fa-user-tie"></i></span>
-                            <span class="direction-parti-name">Silué DIAKAIRIDJA</span>
+                            <span class="direction-parti-name">M.SILUE DIAKAIRIDJA</span>
                             <span class="direction-parti-role">2e Vice-président</span>
-                            <span class="direction-parti-desc">Cadre au Ministère des Sports, originaire de la Région du
-                                Poro</span>
                         </div>
                         <div class="direction-parti-card">
                             <span class="direction-parti-icon"><i class="fas fa-user-tie"></i></span>
-                            <span class="direction-parti-name">Ouohi Zlanneu MESMIN</span>
+                            <span class="direction-parti-name">OUOHI ZLANNEU MESMIN</span>
                             <span class="direction-parti-role">3e Vice-président</span>
-                            <span class="direction-parti-desc">Conseiller pédagogique, originaire de Danané</span>
                         </div>
                         <div class="direction-parti-card">
                             <span class="direction-parti-icon"><i class="fas fa-user-tie"></i></span>
-                            <span class="direction-parti-name">Tonga SILVA</span>
+                            <span class="direction-parti-name">KOUAME KOUAME STEPHANE</span>
                             <span class="direction-parti-role">Secrétaire Général</span>
-                            <span class="direction-parti-desc">Journaliste, originaire de Danané</span>
                         </div>
                         <div class="direction-parti-card">
                             <span class="direction-parti-icon"><i class="fas fa-user-tie"></i></span>
-                            <span class="direction-parti-name">Yéo Dotéhé MARTIN</span>
-                            <span class="direction-parti-role">Secrétaire National chargé de la communication</span>
-                            <span class="direction-parti-desc">Professeur de Cafop, originaire de Korhogo</span>
+                            <span class="direction-parti-name">MISS BAMBA SALIMATA</span>
+                            <span class="direction-parti-role">Secrétaire National chargé des affaires financière</span>
                         </div>
                     </div>
                 </div>
@@ -412,7 +406,7 @@
         <div class="container reveal-bottom">
             <h2>Restez informé de l'actualité du PRI</h2>
             <p>Recevez les communiqués et les dates de tournées directement par email.</p>
-            <form class="newsletter-form">
+            <form id="newsletterForm" class="newsletter-form">
                 <input type="email" placeholder="Votre adresse email" required>
                 <button type="submit" class="btn btn-orange">S'abonner</button>
             </form>
@@ -432,15 +426,17 @@
                             </div>
                             <div class="contact-item-content">
                                 <div class="contact-item-title">Localisation</div>
-                                <div class="contact-item-value">Siège : Séguéla / Abidjan</div>
+                                <div class="contact-item-value">Siège :Man/Abidjan-Cocody</div>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-item-icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
                             <div class="contact-item-content">
                                 <div class="contact-item-title">Téléphone</div>
-                                <div class="contact-item-value"><a href="tel:+2250708849504" class="contact-link">+225
-                                        0708849504</a></div>
+                                <div class="contact-item-value">
+                                    <a href="tel:+2250708849504" class="contact-link">+225 0708849504</a><br>
+                                    <a href="tel:+2250717599852" class="contact-link">+225 0717599852</a>
+                                </div>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -500,27 +496,98 @@
     </section>
 
     <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">PRI - CÔTE D'IVOIRE</div>
-            <div class="social-links">
-                <a href="https://web.facebook.com/profile.php?id=61584098609512&amp;sk=directory_personal_details"
-                    target="_blank" rel="noopener noreferrer" aria-label="Diomandé ZOUMANA sur Facebook"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/diomand%C3%A9-zoumana-9708483b1" target="_blank"
-                    rel="noopener noreferrer" aria-label="Diomandé ZOUMANA sur LinkedIn"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a href="https://wa.me/2250708849504" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
-                        class="fab fa-whatsapp"></i></a>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Identity -->
+                <div class="footer-col">
+                    <div class="footer-logo-box">
+                        <img src="IMAGE/LOGO.jpeg" alt="PRI Logo" class="footer-logo-img">
+                        <div class="footer-party-name">PARTI DE LA RENAISSANCE IVOIRIENNE</div>
+                        <div class="footer-slogan">Rigueur - Transparence - Progrès</div>
+                    </div>
+                    <p class="footer-desc">
+                        Le PRI est une force politique ivoirienne engagée pour la transformation structurelle de notre
+                        nation.
+                        En plaçant la bonne gouvernance et la rigueur budgétaire au cœur de son action, le PRI incarne
+                        l'espoir
+                        d'une économie prospère et d'une justice sociale pour chaque citoyen de Côte d'Ivoire.
+                    </p>
+                </div>
+
+                <!-- Column 2: Discovery -->
+                <div class="footer-col">
+                    <h3>🔍 Découvrez le PRI</h3>
+                    <ul class="footer-links">
+                        <li><a href="#president"><i class="fas fa-chevron-right"></i> Le mot du Président : Diomande
+                                Zoumana.</a></li>
+                        <li><a href="#notre-vision"><i class="fas fa-chevron-right"></i> Notre Vision : Projet "Vision
+                                2030".</a></li>
+                        <li><a href="#direction-parti"><i class="fas fa-chevron-right"></i> Direction du Parti :
+                                L'équipe dirigeante.</a></li>
+                        <li><a href="#vision"><i class="fas fa-chevron-right"></i> Nos Réformes : Piliers
+                                économiques.</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Engagement -->
+                <div class="footer-col">
+                    <h3>🤝 Engagez-vous</h3>
+                    <ul class="footer-links">
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Adhérer au Parti :
+                                Rejoignez-nous.</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Ma Cotisation Annuelle :
+                                Soutenez-nous.</a></li>
+                        <li><a href="#direction-vision"><i class="fas fa-chevron-right"></i> Le Club Vision 2030 :
+                                Stratégies.</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Devenir Bénévole : Agissez sur le
+                                terrain.</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-col">
+                    <h3>📍 Contact & Réseaux</h3>
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Siège</strong>
+                                Man / Abidjan-Cocody
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Tél</strong>
+                                +225 07 08 84 95 04 / 07 17 59 98 52
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                lepri.vision2030@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://web.facebook.com/profile.php?id=61584098609512" class="fb" target="_blank"
+                            aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="tw" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/" class="yt" target="_blank" aria-label="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/2250708849504" class="wa" target="_blank" aria-label="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
             </div>
-            <p class="footer-contacts"><a href="tel:+2250708849504" class="text-orange"><i class="fas fa-phone"></i>
-                    +225
-                    0708849504</a> &nbsp;•&nbsp; <a href="mailto:lepri.vision2030@gmail.com" class="text-orange"><i
-                        class="fas fa-envelope"></i> lepri.vision2030@gmail.com</a></p>
-            <p>&copy; 2026 Parti de la Renaissance Ivoirienne. Tous droits réservés.</p>
-            <span class="transparent-text">
-                <p>créé par EL MOUSTAPHA FOFANA +2250584442211</p>
-            </span>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Parti de la Renaissance Ivoirienne. Tous droits réservés.</p>
+                <div class="transparent-text">
+                    <p>créé par EL MOUSTAPHA FOFANA +2250584442211</p>
+                </div>
+            </div>
         </div>
     </footer>
 

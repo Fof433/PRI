@@ -1,221 +1,239 @@
-/* --- Section Direction du Parti --- */
 html {
     scroll-behavior: smooth;
 }
 
+/* --- Section Direction du Parti (Refonte Design Expert) --- */
+:root {
+    --pri-orange: #FF8200;
+    --pri-green: #009E60;
+    --pri-white: #FFFFFF;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --card-hover-shadow: 0 15px 45px rgba(0, 158, 96, 0.12);
+}
+
 .direction-parti-section {
-    background: transparent;
-    padding: 48px 0 40px 0;
+    background: #fdfdfd;
+    padding: 80px 0;
     scroll-margin-top: 80px;
 }
 
 .direction-parti-container {
     max-width: 1200px;
     margin: 0 auto;
-    background: #fff;
-    border-left: 6px solid #E86100;
-    border-radius: 0 8px 8px 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    padding: 36px 24px 32px 32px;
+    padding: 0 20px;
 }
 
 .direction-parti-header {
-    margin-bottom: 32px;
+    text-align: center;
+    margin-bottom: 50px;
+    /* Séparation nette du titre */
 }
 
 .direction-parti-title {
-    font-family: 'Montserrat', 'Inter', var(--font-heading), sans-serif;
-    color: #0A7A4A;
-    font-weight: 700;
-    font-size: 2rem;
-    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+    color: var(--pri-green);
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    /* Plus d'espace sous le titre */
+    letter-spacing: -0.5px;
 }
 
 .direction-parti-grid {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    align-items: center;
+    gap: 30px;
+    /* Gap de 30px */
 }
 
+/* Carte du Président - Mise en avant */
 .direction-parti-president-card {
     display: flex;
     align-items: center;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(10, 122, 74, 0.07);
-    padding: 28px 24px;
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
+    background: var(--pri-white);
+    border-radius: 15px;
+    /* Coins arrondis à 15px */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Ombre très légère */
+    padding: 35px;
+    /* Padding généreux */
+    border-top: 4px solid var(--pri-orange);
+    /* Bordure supérieure 4px Orange */
+    border-left: 1px solid #f0f0f0;
+    max-width: 800px;
     width: 100%;
-    font-family: 'Montserrat', 'Inter', var(--font-heading), sans-serif;
     cursor: pointer;
-    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .direction-parti-president-card:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    border-color: #0A7A4A;
+    transform: translateY(-5px);
+    /* Élévation de 5px */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    /* Ombre accentuée au survol */
+    border-color: var(--pri-green);
 }
 
 .direction-parti-president-info {
-    margin-left: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.direction-parti-name {
-    color: #0A7A4A;
-    font-weight: 700;
-    font-size: 1.25rem;
-    font-family: 'Montserrat', 'Inter', var(--font-heading), sans-serif;
-}
-
-.direction-parti-role {
-    color: #222;
-    font-size: 1.08rem;
-    font-family: 'Inter', var(--font-body), sans-serif;
-    font-weight: 600;
-}
-
-.direction-parti-desc {
-    color: #555;
-    font-size: 1.01rem;
-    font-family: 'Inter', var(--font-body), sans-serif;
-    font-weight: 400;
-}
-
-.direction-parti-icon {
-    color: #0A7A4A;
-    font-size: 2.1rem;
-    margin-right: 12px;
-    display: inline-flex;
-    align-items: center;
-}
-
-.direction-parti-members-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
-}
-
-.direction-parti-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(10, 122, 74, 0.07);
-    padding: 22px 18px 18px 18px;
-    text-align: left;
-    font-size: 1.05rem;
-    color: #222;
-    border: 1px solid #ddd;
+    margin-left: 30px;
     display: flex;
     flex-direction: column;
     gap: 6px;
-    font-family: 'Montserrat', 'Inter', var(--font-heading), sans-serif;
+}
+
+/* Cartes des Membres */
+.direction-parti-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+.direction-parti-card {
+    background: var(--pri-white);
+    border-radius: 15px;
+    /* Coins arrondis à 15px */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Ombre très légère */
+    padding: 30px 25px;
+    /* Padding généreux */
+    border-top: 4px solid var(--pri-green);
+    /* Bordure supérieure 4px Verte */
+    border-left: 1px solid #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     cursor: pointer;
-    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
 }
 
 .direction-parti-card:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    border-color: #0A7A4A;
+    transform: translateY(-5px);
+    /* Élévation de 5px */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    /* Ombre accentuée au survol */
+    border-top-color: var(--pri-orange);
 }
 
-.direction-parti-card .direction-parti-name {
-    font-size: 1.13rem;
-}
-
-.direction-parti-card .direction-parti-icon {
+/* Typographie */
+.direction-parti-name {
+    color: #1a1a1a;
+    font-weight: 800;
+    /* Plus imposant en gras */
     font-size: 1.5rem;
-    margin-bottom: 4px;
+    /* Plus large */
+    font-family: 'Inter', sans-serif;
+    margin: 0;
 }
 
-/* Effet pulsation au clic (section Direction) */
+.direction-parti-role {
+    color: var(--pri-green);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.direction-parti-desc {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Icônes de profil */
+.direction-parti-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(0, 158, 96, 0.08);
+    /* Vert léger */
+    color: var(--pri-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    transition: background 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.direction-parti-president-card .direction-parti-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 130, 0, 0.1);
+    /* Orange léger */
+    color: var(--pri-orange);
+    font-size: 2.2rem;
+}
+
+.direction-parti-card:hover .direction-parti-icon {
+    background: var(--pri-green);
+    color: var(--pri-white);
+}
+
+.direction-parti-president-card:hover .direction-parti-icon {
+    background: var(--pri-orange);
+    color: var(--pri-white);
+}
+
+/* Animation au clic */
 .direction-parti-card.click-flash,
 .direction-parti-president-card.click-flash {
-    animation: direction-card-pulse 0.5s ease;
+    animation: direction-card-pulse 0.6s ease;
 }
 
 @keyframes direction-card-pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(10, 122, 74, 0.35);
+        transform: scale(1);
     }
 
-    70% {
-        box-shadow: 0 0 0 12px rgba(10, 122, 74, 0);
+    50% {
+        transform: scale(0.98);
+        background: #f9f9f9;
     }
 
     100% {
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        transform: scale(1);
     }
 }
 
-/* Modal profil (section Direction) */
-.direction-modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
-}
+/* Responsive */
+@media (max-width: 992px) {
+    .direction-parti-title {
+        font-size: 2.1rem;
+    }
 
-.direction-modal-overlay.is-visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.direction-modal {
-    background: #fff;
-    border-left: 4px solid #E86100;
-    border-radius: 8px;
-    padding: 1.5rem 2rem;
-    max-width: 90%;
-    width: 400px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-}
-
-.direction-modal p {
-    margin: 0;
-    color: #333;
-    line-height: 1.5;
-}
-
-.direction-modal-close {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background: #0A7A4A;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.95rem;
-}
-
-@media (max-width: 1024px) {
     .direction-parti-members-grid {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-@media (max-width: 700px) {
-    .direction-parti-members-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .direction-parti-section {
+        padding: 50px 0;
     }
 
     .direction-parti-president-card {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 18px 12px;
+        text-align: center;
+        padding: 30px 20px;
     }
 
     .direction-parti-president-info {
         margin-left: 0;
-        margin-top: 8px;
+        margin-top: 20px;
+    }
+
+    .direction-parti-members-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .direction-parti-card {
+        text-align: center;
+        align-items: center;
     }
 }
 
@@ -1596,7 +1614,8 @@ ul {
     display: grid;
     grid-template-columns: 44px 1fr;
     gap: 14px;
-    align-items: start;
+    align-items: center;
+    /* Centrage vertical exact de l'icône */
     padding: 14px 14px;
     border-radius: 14px;
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -1782,39 +1801,198 @@ ul {
     }
 }
 
-/* --- Footer --- */
+/* --- Updated Footer --- */
 footer {
-    background: #0f2b1d;
-    color: #aaa;
-    padding: 50px 0 20px;
-    text-align: center;
+    background: #082115;
+    /* Darker green for a premium look */
+    color: #e0e0e0;
+    padding: 80px 0 30px;
+    font-family: 'Inter', sans-serif;
 }
 
-.footer-logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--color-white);
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-col h3 {
+    color: var(--pri-white);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--pri-orange);
+}
+
+.footer-logo-box {
     margin-bottom: 20px;
 }
 
-.social-links {
-    margin-bottom: 20px;
+.footer-logo-img {
+    height: 60px;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
-.social-links a {
+.footer-party-name {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--pri-white);
+    margin-bottom: 5px;
+}
+
+.footer-slogan {
+    font-style: italic;
+    color: var(--pri-orange);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.footer-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #bbb;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links a i {
+    font-size: 0.8rem;
+    color: var(--pri-green);
+}
+
+.footer-links a:hover {
+    color: var(--pri-orange);
+    padding-left: 5px;
+}
+
+.footer-contact-info {
+    font-size: 0.95rem;
+    color: #bbb;
+}
+
+.footer-contact-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.footer-contact-item i {
+    color: var(--pri-orange);
+    margin-top: 4px;
+}
+
+.footer-contact-item strong {
+    color: var(--pri-white);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.footer-social {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    display: inline-flex;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    color: var(--color-white);
-    margin: 0 5px;
+    color: var(--pri-white);
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
-.social-links a:hover {
-    background: var(--color-orange);
+/* Specific colors for social icons as requested */
+.footer-social a.fb:hover {
+    background: #1877F2;
+    border-color: #1877F2;
+}
+
+.footer-social a.tw:hover {
+    background: #1DA1F2;
+    border-color: #1DA1F2;
+}
+
+.footer-social a.yt:hover {
+    background: #FF0000;
+    border-color: #FF0000;
+}
+
+.footer-social a.wa:hover {
+    background: #25D366;
+    border-color: #25D366;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.transparent-text {
+    opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
 }
 
 /* Footer credit - static & reduced size */

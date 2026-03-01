@@ -262,6 +262,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- 5.1 Gestion du formulaire Newsletter (Redirection Facebook) ---
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const facebookUrl = "https://web.facebook.com/profile.php?id=61584098609512&sk=directory_personal_details";
+            // Redirection après un très court délai pour laisser l'UI respirer
+            setTimeout(() => {
+                window.location.href = facebookUrl;
+            }, 300);
+        });
+    }
+
     // --- 5. Envoi automatique du formulaire (EmailJS) + fallback mailto ---
     // Remplacez les valeurs ci‑dessous par vos identifiants EmailJS (https://www.emailjs.com)
     const EMAILJS_USER_ID = 'YOUR_EMAILJS_USER_ID';     // ex: user_XXXXXXXXXX
