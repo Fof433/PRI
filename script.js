@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateActiveLink = () => {
         const sections = document.querySelectorAll('section[id], div[id^="accueil"], div[id^="president"], div[id^="direction"], div[id^="vision"], div[id^="oeuvres"], div[id^="contact"]');
         const navLinksList = document.querySelectorAll('.nav-links a[href^="#"]');
-        
+
         sections.forEach(section => {
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -196,15 +196,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             }, observerOptions);
-            
+
             observer.observe(section);
         });
     };
-    
+
     updateActiveLink();
 
     // --- Typewriter effect for hero heading (machine) ---
-    (function() {
+    (function () {
         const heroTypeEl = document.getElementById('heroType');
         if (!heroTypeEl) return;
         const heroHTML = "L'Espoir de la Côte d'Ivoire<br>avec <span class='text-orange'>Diomandé ZOUMANA</span>";
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            
+
             // Fermeture du drawer au cas où il serait ouvert (prioritaire)
             closeDrawer();
 
@@ -248,9 +248,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             e.preventDefault();
-            
+
             // Animate scroll avec gestion du scroll-margin-top
-            target.scrollIntoView({ 
+            target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feedbackEl.textContent = message;
             feedbackEl.className = 'form-feedback ' + (type === 'success' ? 'success' : 'error');
             feedbackEl.style.display = 'block';
-            
+
             // Animation moderne pour le message de succès
             if (type === 'success') {
                 feedbackEl.style.animation = 'slideInDown 0.5s ease-out';
@@ -345,82 +345,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Section Direction du Parti : clic carte → modale profil + effet pulse ---
-    (function directionPartiInteraction() {
-        let overlay = document.getElementById('direction-modal-overlay');
-        let modalTitle = document.getElementById('direction-modal-title');
-        let closeBtn = document.getElementById('direction-modal-close');
-
-        if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.id = 'direction-modal-overlay';
-            overlay.className = 'direction-modal-overlay';
-            overlay.setAttribute('aria-hidden', 'true');
-            const modal = document.createElement('div');
-            modal.className = 'direction-modal';
-            modal.setAttribute('role', 'dialog');
-            modalTitle = document.createElement('p');
-            modalTitle.id = 'direction-modal-title';
-            modal.appendChild(modalTitle);
-            closeBtn = document.createElement('button');
-            closeBtn.type = 'button';
-            closeBtn.className = 'direction-modal-close';
-            closeBtn.id = 'direction-modal-close';
-            closeBtn.textContent = 'Fermer';
-            modal.appendChild(closeBtn);
-            overlay.appendChild(modal);
-            document.body.appendChild(overlay);
-        } else {
-            modalTitle = document.getElementById('direction-modal-title');
-            closeBtn = document.getElementById('direction-modal-close');
-        }
-
-        function showProfileModal(name, role, region) {
-            if (!modalTitle) return;
-            modalTitle.textContent = 'Vous consultez le profil de ' + name + ', ' + role + ' originaire de ' + region + '.';
-            if (overlay) {
-                overlay.classList.add('is-visible');
-                overlay.setAttribute('aria-hidden', 'false');
-            }
-        }
-
-        function closeModal() {
-            if (overlay) {
-                overlay.classList.remove('is-visible');
-                overlay.setAttribute('aria-hidden', 'true');
-            }
-        }
-
-        if (closeBtn) closeBtn.addEventListener('click', closeModal);
-        if (overlay) overlay.addEventListener('click', function (e) {
-            if (e.target === overlay) closeModal();
-        });
-
-        function getRegionFromDesc(desc) {
-            if (!desc) return '—';
-            const match = desc.trim().match(/originaire de (.+)/i);
-            return match ? match[1].trim() : desc;
-        }
-
-        function handleCardClick(card) {
-            const nameEl = card.querySelector('.direction-parti-name');
-            const roleEl = card.querySelector('.direction-parti-role');
-            const descEl = card.querySelector('.direction-parti-desc');
-            const name = nameEl ? nameEl.textContent.trim() : '—';
-            const role = roleEl ? roleEl.textContent.trim() : '—';
-            const region = getRegionFromDesc(descEl ? descEl.textContent : '');
-            showProfileModal(name, role, region);
-            card.classList.add('click-flash');
-            setTimeout(function () { card.classList.remove('click-flash'); }, 500);
-        }
-
-        const presidentCard = document.querySelector('#direction-parti .direction-parti-president-card');
-        if (presidentCard) presidentCard.addEventListener('click', function () { handleCardClick(presidentCard); });
-
-        const memberCards = document.querySelectorAll('#direction-parti .direction-parti-card');
-        memberCards.forEach(function (card) {
-            card.addEventListener('click', function () { handleCardClick(card); });
-        });
-    })();
 
 });
