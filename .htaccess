@@ -1,0 +1,22 @@
+# Définir la page d'erreur 503 personnalisée
+ErrorDocument 503 /maintenance.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Ne pas bloquer la page de maintenance elle-même
+    RewriteCond %{REQUEST_URI} !^/maintenance\.html$ [NC]
+    
+    # Autoriser certains dossiers/fichiers comme les images et le CSS si vous voulez que la page de maintenance s'affiche correctement au besoin
+    RewriteCond %{REQUEST_URI} !^/IMAGE/ [NC]
+    RewriteCond %{REQUEST_URI} !^/IMAGE\ ACT/ [NC]
+    RewriteCond %{REQUEST_URI} !^/style\.css$ [NC]
+    
+    # Renvoyer tout le reste vers une erreur 503
+    RewriteRule .* - [R=503,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Ajouter le header Retry-After pour le SEO (2592000 secondes = 30 jours)
+    Header always set Retry-After "2592000" env=REDIRECT_STATUS
+</IfModule>
