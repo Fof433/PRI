@@ -4,255 +4,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualités - PRI</title>
+    <title>Site en maintenance - PRI</title>
     <link rel="shortcut icon" href="IMAGE/LOGO.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <!-- Import police Inter pour toute la page (mobile nav exige une police moderne) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- mêmes fontes que la page principale (dégradé de secours) -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Roboto:wght@300;400;500;700&family=Special+Elite&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- styles spécifiques transférés dans style.css -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8fafc;
+            color: #0f172a;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Décoration tricolore Ivoirienne en haut */
+        .tricolor-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            display: flex;
+        }
+
+        .bg-orange {
+            background-color: #E86100;
+            flex: 1;
+        }
+
+        .bg-white {
+            background-color: #ffffff;
+            flex: 1;
+        }
+
+        .bg-green {
+            background-color: #0A7A4A;
+            flex: 1;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: #0A7A4A;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #475569;
+            margin-bottom: 24px;
+        }
+
+        .message-en {
+            font-size: 14px;
+            color: #94a3b8;
+            font-style: italic;
+            margin-top: -16px;
+            margin-bottom: 30px;
+        }
+
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #E86100;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer-note {
+            margin-top: 40px;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* Arrière-plan subtil */
+        .bg-decoration {
+            position: absolute;
+            opacity: 0.03;
+            width: 400px;
+            height: 400px;
+            background-color: #0A7A4A;
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            z-index: 1;
+        }
+
+        .bg-decoration-2 {
+            position: absolute;
+            opacity: 0.03;
+            width: 300px;
+            height: 300px;
+            background-color: #E86100;
+            border-radius: 50%;
+            bottom: -50px;
+            left: -100px;
+            z-index: 1;
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- écran de chargement : il est retiré par le script après 1,5s -->
-    <div id="loader-overlay">
-        <div class="spinner" aria-label="Chargement en cours"></div>
+    <div class="tricolor-line">
+        <span class="bg-orange"></span>
+        <span class="bg-white"></span>
+        <span class="bg-green"></span>
     </div>
 
-    <!-- même header/nav que sur la page d'accueil -->
-    <button id="backToTop" type="button" class="scroll-top" aria-label="Retour en haut"><i
-            class="fas fa-arrow-up"></i></button>
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration-2"></div>
 
-    <header class="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="IMAGE/LOGO.jpeg" alt="PRI - logo" class="header-logo-image">
-            </a>
-            <div class="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <nav class="navbar">
-                <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="index.html#president">Le Président</a></li>
-                    <li><a href="index.html#notre-vision">Notre Vision</a></li>
-                    <li><a href="index.html#direction-parti">Bureau</a></li>
-                    <li><a href="actualites.html" class="active">Actualités</a></li>
-                    <li><a href="index.html#oeuvres">Publications</a></li>
-                    <li><a href="index.html#contact" class="btn-nav">Rejoindre le PRI</a></li>
-                </ul>
-            </nav>
-            <!-- Drawer backdrop + side drawer (mobile) -->
-            <div id="drawerBackdrop" class="drawer-backdrop" aria-hidden="true"></div>
-            <aside id="sideDrawer" class="side-drawer" aria-hidden="true">
-                <button id="drawerClose" class="drawer-close" aria-label="Fermer le menu">×</button>
-                <div class="drawer-tricolor">
-                    <span class="bg-orange"></span>
-                    <span class="bg-white"></span>
-                    <span class="bg-green"></span>
-                </div>
-                <nav class="drawer-nav">
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="index.html#president">Le Président</a></li>
-                        <li><a href="index.html#notre-vision">Notre Vision</a></li>
-                        <li><a href="index.html#direction-parti">Bureau</a></li>
-                        <li><a href="actualites.html">Actualités</a></li>
-                        <li><a href="index.html#oeuvres">Publications</a></li>
-                        <li><a href="index.html#contact" class="drawer-cta">Rejoindre le PRI</a></li>
-                    </ul>
-                </nav>
-            </aside>
+    <div class="container">
+        <img src="IMAGE/LOGO.jpeg" alt="Logo PRI" class="logo">
+        <h1>Site en maintenance</h1>
+        <p>Le site officiel du Parti de la Renaissance Ivoirienne (PRI) est temporairement indisponible pour cause de
+            maintenance technique. Nous mettons à jour notre plateforme pour mieux vous servir.</p>
+        <p class="message-en">Site temporarily unavailable for maintenance.</p>
+
+        <div class="loader"></div>
+
+        <div class="footer-note">
+            &copy; 2026 Parti de la Renaissance Ivoirienne.
         </div>
-        <div class="tricolor-line">
-            <span class="bg-orange"></span>
-            <span class="bg-white"></span>
-            <span class="bg-green"></span>
-        </div>
-    </header>
-
-    <!-- contenu spécifique Actualités -->
-    <section class="news-section">
-        <div class="container">
-            <h1 class="section-title" style="text-align:center; color:#0A7A4A;">Actualités</h1>
-            <div class="news-grid">
-                <!-- (Les 3 premières cartes ont été supprimées à la demande) -->
-                <!-- CARTE AJOUTÉE : Rencontre Littérature (IM1) -->
-                <!-- Remplace IMAGE/IM1.jpg par le fichier réel dans votre dossier IMAGE -->
-                <div class="news-card small">
-                    <!-- Image réelle placée dans le dossier 'IMAGE ACT' -->
-                    <img src="IMAGE%20ACT/IM1.jpeg" alt="V. Konan, Abou Houdou Diarra et invité en costume">
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-date">Février 2024</span>
-                            <span class="news-badge">Rencontre</span>
-                        </div>
-                        <!-- Texte de l'actualité : modifiable directement ici -->
-                        <h3 class="news-title">Avec M. Venance KONAN et M. Abou Houdou DIARRA, échange littéraire et
-                            professionnel</h3>
-                        <!-- résumé/description courte (facultatif) -->
-                        <p style="margin:8px 0 0;color:#333;font-size:0.95rem;line-height:1.35">Avec M. Venance KONAN,
-                            une des figures de proue du journalisme et de la littérature en Côte d'Ivoire, et
-                            l'écrivain, poète, M. Abou Houdou DIARRA, en service au cabinet du Ministère de la Fonction
-                            Publique.</p>
-                    </div>
-                </div>
-
-                <!-- CARTE AJOUTÉE : Visite protocolaire (IM2) -->
-                <!-- Remplace IMAGE/IM2.jpg par le fichier réel dans votre dossier IMAGE -->
-                <div class="news-card small">
-                    <!-- Image réelle placée dans le dossier 'IMAGE ACT' -->
-                    <img src="IMAGE%20ACT/IM2.jpeg" alt="Madame la Ministre Henriette Adjoua Lagou en robe bleue">
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-date">Octobre 2023</span>
-                            <span class="news-badge">Politique</span>
-                        </div>
-                        <!-- Texte de l'actualité : modifiable directement ici -->
-                        <h3 class="news-title">Visite de courtoisie chez Madame la Ministre Henriette Adjoua LAGOU</h3>
-                        <p style="margin:8px 0 0;color:#333;font-size:0.95rem;line-height:1.35">Une visite de courtoisie
-                            chez Madame la Ministre Henriette Adjoua LAGOU, candidate à l'élection présidentielle du 25
-                            octobre 2025.</p>
-                    </div>
-                </div>
-
-                <!-- CARTE AJOUTÉE : Concertation coordinateurs (IM3) -->
-                <div class="news-card">
-                    <img src="IMAGE%20ACT/IM3.jpeg" alt="Coordinateurs du PRI devant affiche PRI">
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-date">Janvier 2024</span>
-                            <span class="news-badge">Organisation</span>
-                        </div>
-                        <h3 class="news-title">Concertation avec les coordinateurs du PRI</h3>
-                        <p style="margin:8px 0 0;color:#333;font-size:0.95rem;line-height:1.35">Rencontre et échanges
-                            stratégiques avec les coordinateurs du parti : le Camarade Bamba Karim (Abidjan), le
-                            Camarade Seh's Boua Pierre Rahoul (Dabou) et le Camarade Kouassi Hubert (Hermankono-Garo /
-                            Divo).</p>
-                    </div>
-                </div>
-
-                <!-- CARTE AJOUTÉE : Dédicace (IM4) -->
-                <div class="news-card">
-                    <img src="IMAGE%20ACT/IM4.jpeg" alt="Président signant des ouvrages - dédicace">
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-date">28 fév. 2025</span>
-                            <span class="news-badge">Événement</span>
-                        </div>
-                        <h3 class="news-title">Dédicace du livre ALASSANE OUATTARA, L'ARTISAN DU RENOUVEAU IVOIRIEN</h3>
-                        <p style="margin:8px 0 0;color:#333;font-size:0.95rem;line-height:1.35">Dédicace du livre le 28
-                            Février 2025 à Abidjan-Cocody.</p>
-                    </div>
-                </div>
-
-                <!-- autres cartes possibles... -->
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Column 1: Identity -->
-                <div class="footer-col">
-                    <div class="footer-logo-box">
-                        <img src="IMAGE/LOGO.jpeg" alt="PRI Logo" class="footer-logo-img">
-                        <div class="footer-party-name">PARTI DE LA RENAISSANCE IVOIRIENNE</div>
-                        <div class="footer-slogan">Rigueur - Transparence - Progrès</div>
-                    </div>
-                    <p class="footer-desc">
-                        Le PRI est une force politique ivoirienne engagée pour la transformation structurelle de notre
-                        nation.
-                        En plaçant la bonne gouvernance et la rigueur budgétaire au cœur de son action, le PRI incarne
-                        l'espoir
-                        d'une économie prospère et d'une justice sociale pour chaque citoyen de Côte d'Ivoire.
-                    </p>
-                </div>
-
-                <!-- Column 2: Discovery -->
-                <div class="footer-col">
-                    <h3>🔍 Découvrez le PRI</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html#president"><i class="fas fa-chevron-right"></i> Le mot du Président :
-                                Diomande Zoumana.</a></li>
-                        <li><a href="index.html#notre-vision"><i class="fas fa-chevron-right"></i> Notre Vision : Projet
-                                "Vision 2030".</a></li>
-                        <li><a href="index.html#direction-parti"><i class="fas fa-chevron-right"></i> Direction du Parti
-                                : L'équipe dirigeante.</a></li>
-                        <li><a href="index.html#vision"><i class="fas fa-chevron-right"></i> Nos Réformes : Piliers
-                                économiques.</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Engagement -->
-                <div class="footer-col">
-                    <h3>🤝 Engagez-vous</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Adhérer au Parti :
-                                Rejoignez-nous.</a></li>
-                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Ma Cotisation Annuelle :
-                                Soutenez-nous.</a></li>
-                        <li><a href="index.html#direction-vision"><i class="fas fa-chevron-right"></i> Le Club Vision
-                                2030 : Stratégies.</a></li>
-                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Devenir Bénévole : Agissez
-                                sur le terrain.</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Contact -->
-                <div class="footer-col">
-                    <h3>📍 Contact & Réseaux</h3>
-                    <div class="footer-contact-info">
-                        <div class="footer-contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <strong>Siège</strong>
-                                Man / Abidjan-Cocody
-                            </div>
-                        </div>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <strong>Tél</strong>
-                                +225 07 08 84 95 04 / 07 17 59 98 52
-                            </div>
-                        </div>
-                        <div class="footer-contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <strong>Email</strong>
-                                lepri.vision2030@gmail.com
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-social">
-                        <a href="https://web.facebook.com/profile.php?id=61584098609512" class="fb" target="_blank"
-                            aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="tw" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/" class="yt" target="_blank" aria-label="YouTube"><i
-                                class="fab fa-youtube"></i></a>
-                        <a href="https://wa.me/2250708849504" class="wa" target="_blank" aria-label="WhatsApp"><i
-                                class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Parti de la Renaissance Ivoirienne. Tous droits réservés.</p>
-                <div class="transparent-text">
-                    <p>créé par EL MOUSTAPHA FOFANA +2250584442211</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
 </body>
 
 </html>
