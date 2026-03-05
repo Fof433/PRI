@@ -1,18 +1,15 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # On laisse l'accès au fichier maintenance.html pour éviter une boucle de redirection infinie
-    RewriteCond %{REQUEST_URI} !^/maintenance\.html$
-    
-    # Optionnel: Laisser l'accès à un dossier contenant CSS/JS ou images si la page maintenance en a besoin
-    # RewriteCond %{REQUEST_URI} !^/assets/.*$
+    # On laisse l'accès au fichier 503.html pour éviter une boucle de redirection infinie
+    RewriteCond %{REQUEST_URI} !^/503\.html$
     
     # Règle qui renvoie un code 503 (Service Unavailable) pour toutes les autres requêtes
     RewriteRule .* - [R=503,L]
 </IfModule>
 
-# Lorsqu'une erreur 503 est déclenchée, on affiche la page maintenance.html
-ErrorDocument 503 /maintenance.html
+# Lorsqu'une erreur 503 est déclenchée, on affiche la page 503.html
+ErrorDocument 503 /503.html
 
 # Important pour le SEO : indique aux robots (Google) de revenir après 3600 secondes (1 heure)
 <IfModule mod_headers.c>

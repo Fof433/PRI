@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Introuvable - PRI</title>
+    <!-- On reprend les mêmes polices que votre site officiel pour garder la cohérence -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Couleurs tirées de la charte de votre site (Vert et Orange) */
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --pri-green: #0A7A4A;
+            --pri-orange: #E86100;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            text-align: center;
+        }
+
+        .error-container {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            max-width: 550px;
+            width: 90%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* L'icône animée */
+        .error-icon {
+            font-size: 64px;
+            color: var(--pri-orange);
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .error-code {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
+            /* Dégradé texte avec les couleurs du PRI */
+            background: linear-gradient(135deg, var(--pri-green), var(--pri-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+        }
+
+        /* Bouton de retour assorti à votre site */
+        .btn-return {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--pri-green);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(10, 122, 74, 0.2);
+        }
+
+        .btn-return:hover {
+            background-color: #08603a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(10, 122, 74, 0.3);
+        }
+
+        /* Optionnel : petite bande tricolore en bas de la carte */
+        .tricolor-bar {
+            height: 4px;
+            width: 100%;
+            display: flex;
+            border-radius: 0 0 20px 20px;
+            overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .tricolor-bar span {
+            flex: 1;
+        }
+
+        .bg-orange {
+            background-color: var(--pri-orange);
+        }
+
+        .bg-white {
+            background-color: #ffffff;
+        }
+
+        .bg-green {
+            background-color: var(--pri-green);
+        }
+
+        .error-container {
+            position: relative;
+        }
+
+        /* Nécessaire pour placer la bande en bas */
+
+        @media (max-width: 600px) {
+            .error-container {
+                padding: 40px 24px;
+            }
+
+            .error-code {
+                font-size: 60px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <!-- Icône de recherche / boussole cassée -->
+        <i class="fa-solid fa-map-location-dot error-icon"></i>
+
+        <div class="error-code">404</div>
+        <h1>Page introuvable</h1>
+
+        <p>Oups ! Il semblerait que vous vous soyez perdu en chemin. La page que vous recherchez n'existe pas, a été
+            supprimée ou provisoirement déplacée.</p>
+
+        <a href="index.html" class="btn-return">
+            <i class="fa-solid fa-arrow-left"></i>
+            Retour à l'accueil
+        </a>
+
+        <!-- Petit rappel subtil de la charte ivoirienne (Orange, Blanc, Vert) -->
+        <div class="tricolor-bar">
+            <span class="bg-orange"></span>
+            <span class="bg-white"></span>
+            <span class="bg-green"></span>
+        </div>
+    </div>
+</body>
+
+</html>
